@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `Product` ADD COLUMN `type_id` VARCHAR(191) NOT NULL DEFAULT '';

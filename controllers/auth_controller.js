@@ -39,7 +39,7 @@ class AuthController {
       );
       return res.json({ token });
     } catch (err) {
-      return err;
+      return res.json({ success: false, mesage: err.message });
     }
   };
 }
