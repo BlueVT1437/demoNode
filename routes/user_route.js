@@ -7,7 +7,7 @@ const awaitHandler = require("../middleware/await_handler");
 
 // all routes
 router.get("/", awaitHandler, userController.getAllUsers);
-router.get("/{id}", awaitHandler, userController.createUser);
+router.get("/:id", awaitHandler, userController.getUserById);
 router.post("/", userController.createUser);
 
 module.exports = router;

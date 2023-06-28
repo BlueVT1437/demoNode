@@ -8,5 +8,6 @@ const awaitHandler = require("../middleware/await_handler");
 // all routes
 router.get("/", awaitHandler, productController.getProducts);
 router.post("/", awaitHandler, productController.createProduct);
+router.delete("/:id", awaitHandler, productController.deleteProduct);
 
 module.exports = router;
