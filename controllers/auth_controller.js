@@ -7,6 +7,7 @@ class AuthController {
   login = async (req, res) => {
     try {
       const { email, password } = req.body;
+
       if (!email || !password) {
         return res.status(400).json({
           error: "Please type email and password",
@@ -40,7 +41,9 @@ class AuthController {
       return res.json({ token });
     } catch (err) {
       return res.json({ success: false, mesage: err.message });
-    }
+    } finally {
+			async () => await prisma.$disconnect();
+		}
   };
 }
 

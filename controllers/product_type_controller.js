@@ -8,6 +8,8 @@ class ProductTypeController {
 			res.status(200).json({data: productTypes})
 		} catch (err) {
 			return err
+		} finally {
+			async () => await prisma.$disconnect();
 		}
 	}
 

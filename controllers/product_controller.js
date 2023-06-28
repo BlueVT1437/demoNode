@@ -22,7 +22,9 @@ class ProductController {
       return res.status(200).json({ data: listProducts });
     } catch (err) {
       return res.json({ success: false, error: err.message });
-    }
+    } finally {
+			async () => await prisma.$disconnect();
+		}
   };
 
   createProduct = async (req, res) => {
@@ -39,8 +41,10 @@ class ProductController {
       });
       return res.json({ ok: true, data: newProduct });
     } catch (err) {
-      return res.json({ success: false, mesage: err.message });
-    }
+      return res.json({ success: false, message: err.message });
+    } finally {
+			async () => await prisma.$disconnect();
+		}
   };
 }
 
