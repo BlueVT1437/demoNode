@@ -10,7 +10,7 @@ class UserController {
       if (users.length === 0) {
         return res
           .status(200)
-          .json({ ok: false, message: "list users are empty" });
+          .json({ success: false, message: "list users are empty" });
       }
       return res.send(users);
     } catch (error) {
@@ -70,11 +70,9 @@ class UserController {
       }
     } catch (error) {
       res.status(500).json({
-        ok: false,
+        success: false,
         error: "Something went wrong!",
       });
-    } finally {
-      async () => await prisma.$disconnect();
     }
   };
 }
