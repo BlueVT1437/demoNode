@@ -23,6 +23,8 @@ model Product {
   price      Int
   type_id    String      @default("")
   type       ProductType @relation(fields: [type_id], references: [id])
+
+  @@index([type_id], map: "Product_type_id_fkey")
 }
 
 model ProductType {

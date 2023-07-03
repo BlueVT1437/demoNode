@@ -35,6 +35,7 @@ class AuthController {
           user_id: existedAccount.user_id,
           email: existedAccount.email,
           name: existedAccount.name,
+					role: existedAccount.role
         },
         secretKey
       );
